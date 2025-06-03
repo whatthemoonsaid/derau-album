@@ -1,23 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>blink-182 | Spotify Clone</title>
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <title>space - Album by Derau | Spotify</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js" defer></script>
 </head>
-<body class="bg-gradient-to-b from-pink-600 to-black text-white font-sans">
+<body class="bg-gradient-to-b from-pink-600 to-black text-white font-sans min-h-screen">
 
-  <!-- Header -->
-  <div class="p-6 flex items-center space-x-6">
-    <img src="assets/cover.jpg" alt="Album Cover" class="w-48 shadow-lg">
-    <div>
-      <h1 class="text-5xl font-bold">blink-182</h1>
-      <p class="text-sm mt-2">Album · 2003 · 16 songs</p>
+  <!-- Album Info -->
+  <div class="p-6 flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+    <img src="assets/cover.jpg" alt="Album Cover" class="w-48 shadow-lg rounded" />
+    <div class="text-center md:text-left">
+      <h1 class="text-5xl font-bold">space</h1>
+      <p class="text-sm mt-2">Derau · 2024 · 12 songs, 51 min</p>
     </div>
   </div>
 
-  <!-- List -->
+  <!-- Control Bar  -->
+  <div class="flex items-center justify-between px-6 py-4">
+    <div class="flex items-center space-x-4">
+      <!-- Play Button -->
+      <button class="bg-green-500 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition">
+        <svg class="w-6 h-6 fill-black" viewBox="0 0 24 24"><path d="M5 3v18l15-9L5 3z"/></svg>
+      </button>
+
+      <!-- Album Thumbnail -->
+      <div class="w-10 h-14 rounded overflow-hidden border border-gray-400 shadow-md">
+        <img src="assets/cover.jpg" alt="Album toggle" class="w-full h-full object-cover" />
+      </div>
+
+      <!-- Shuffle -->
+      <button title="Shuffle">
+        <svg class="w-6 h-6 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M16 3h5v5M21 3l-8.5 8.5M4 4l16 16M4 20h5v-5"></path>
+        </svg>
+      </button>
+
+      <!-- Add -->
+      <button title="Add">
+        <svg class="w-6 h-6 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 4v16m8-8H4"></path>
+        </svg>
+      </button>
+
+      <!-- Download -->
+      <button title="Download">
+        <svg class="w-6 h-6 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 5v14m7-7H5"></path>
+        </svg>
+      </button>
+
+      <!-- More Options -->
+      <button title="More">
+        <svg class="w-6 h-6 text-gray-300 hover:text-white transition" fill="currentColor" viewBox="0 0 24 24">
+          <circle cx="5" cy="12" r="2"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
+          <circle cx="19" cy="12" r="2"></circle>
+        </svg>
+      </button>
+    </div>
+
+    <!-- List text with icon -->
+    <div class="flex items-center space-x-1 text-gray-300 hover:text-white cursor-pointer transition">
+      <span>List</span>
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Song List -->
   <div class="px-6">
     <table class="w-full table-auto">
       <thead>
@@ -29,7 +84,7 @@
         </tr>
       </thead>
       <tbody id="song-list" class="text-white">
-        <!-- Songs -->
+        <!-- JS -->
       </tbody>
     </table>
   </div>
