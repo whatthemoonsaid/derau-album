@@ -103,37 +103,31 @@
 <!-- Bottom Fixed Player -->
   <div class="fixed bottom-0 left-0 right-0 bg-black text-white px-6 py-3 border-t border-gray-700 z-50 flex justify-between items-center h-24">
   <!-- Buttons Row -->
+    <!-- Center: Controls + Progress -->
+<div class="flex flex-col items-center w-1/3">
+  <!-- Buttons Row -->
   <div class="flex items-center space-x-4 mb-2">
-    <img id="player-cover" src="assets/cover.jpg" class="w-12 h-12 rounded shadow" />
-    <div>
-      <p id="player-title" class="text-sm font-semibold">Select a song</p>
-      <p id="player-artist" class="text-xs text-gray-400">Derau</p>
-    </div>
+    <!-- Back Button -->
+    <button id="prev-button" title="Previous">
+      <svg class="w-5 h-5 text-gray-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M11 5v14l-7-7m8 0l7 7V5l-7 7z"/>
+      </svg>
+    </button>
+
+    <!-- Play/Pause Button -->
+    <button id="play-pause" class="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition" title="Play/Pause">
+      <svg id="play-icon" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </button>
+
+    <!-- Next Button -->
+    <button id="next-button" title="Next">
+      <svg class="w-5 h-5 text-gray-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M13 5v14l7-7m-8 0l-7 7V5l7 7z"/>
+      </svg>
+    </button>
   </div>
-
-  <!-- Center  -->
-  <div class="flex items-center space-x-4 mb-1">
-  <!-- Back Button -->
-  <button id="prev-button" title="Previous">
-    <svg class="w-5 h-5 text-gray-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M11 19V5l-7 7m8 0l7 7V5l-7 7z"/>
-    </svg>
-  </button>
-
-  <!-- Play/Pause -->
-  <button id="play-pause" class="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition" title="Play/Pause">
-    <svg id="play-icon" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M8 5v14l11-7z" />
-    </svg>
-  </button>
-
-  <!-- Next Button -->
-  <button id="next-button" title="Next">
-    <svg class="w-5 h-5 text-gray-400 hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M13 5v14l7-7m-8 0l-7 7V5l7 7z"/>
-    </svg>
-  </button>
-</div>
 
   <!-- Progress Bar Row -->
   <div class="flex items-center space-x-2 w-full text-xs text-gray-400">
