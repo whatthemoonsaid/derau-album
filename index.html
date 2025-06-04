@@ -9,15 +9,16 @@
   <script src="script.js" defer></script>
 </head>
 <body class="min-h-screen bg-gradient-to-b from-zinc-300 to-zinc-900 text-white font-sans">
+<div class="pb-28">  
   
   <!-- Album Info -->
-  <div class="p-6 flex flex-col md:flex-row md:items-center space-y-6 md:space-y-0 md:space-x-8">
+  <div class="bg-gradient-to-b from-zinc-300 to-zinc-700 p-6 md:flex md:space-x-8 items-center">
   <!-- Album cover -->
   <img src="assets/cover.jpg" alt="Album Cover" class="w-48 shadow-lg rounded" />
 
   <!-- Text content -->
   <div class="flex flex-col justify-end h-full space-y-2 text-center md:text-left mt-0 md:mt-20">
-    <p class="text-sm text-gray-300 uppercase tracking-widest">Album</p>
+    <p class="text-sm text-gray-300 font-medium">Album</p>
     <h1 class="text-5xl font-bold">space</h1>
     <p class="text-sm text-gray-300 flex items-center justify-center md:justify-start space-x-2">
       <img src="assets/derau-avatar.jpg" alt="Derau" class="w-6 h-6 rounded-full mr-2">
@@ -27,7 +28,8 @@
   </div>
   </div>
 
-
+  <!-- Separator  -->
+  <div class="bg-gradient-to-b from-zinc-800 to-black pb-28 px-6">
   <!-- Control Bar  -->
   <div class="flex items-center justify-between px-6 py-4">
     <div class="flex items-center space-x-4">
@@ -100,13 +102,12 @@
   </div>
 
   <!-- Player -->
-  <div class="bg-black px-6 py-4 border-t border-gray-700 mt-12 flex items-center justify-between">
-
+  <div class="fixed bottom-0 left-0 right-0 bg-black px-6 py-4 border-t border-gray-700 flex items-center justify-between z-50">
     <div>
       <strong id="now-playing-title">Select a song</strong>
     </div>
     <audio id="audio-player" controls class="w-1/2"></audio>
   </div>
-
+</div>
 </body>
 </html>
