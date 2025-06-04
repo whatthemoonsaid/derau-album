@@ -111,13 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function playSong(index) {
     const song = songs[index];
     player.src = song.file;
-    player.play();
+    player.load();
+    player.play().catch(err => console.log("Playback blocked:", err))
     currentTrackIndex = index;
     titleText.textContent = song.title;
     artistText.textContent = "Derau";
     coverImg.src = "assets/cover.jpg";
     updatePlayIcon(true);
   }
+ 
+
 
   document.getElementById("prev-button").addEventListener("click", () => {
     if (currentTrackIndex !== null && currentTrackIndex > 0) {
@@ -180,13 +183,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let isDragging = false;
 
   function updateProgressOnDrag(e) {
-    const rect = progressContainer.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const ratio = Math.min(Math.max(x / rect.width, 0), 1);
-    if (!isNaN(player.duration)) {
-      player.currentTime = ratio * player.duration;
+  const rect = progressContainer.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const ratio = Math.min(Math.max(x / rect.width, 0), 1);
+  if (!isNaN(player.duration)) {
+    player.currentTime = ratio * player.duration;
+    progressBar.style.width = `${ratio * 100}%`; 
     }
   }
+
 
   progressContainer.addEventListener("click", updateProgressOnDrag);
 
