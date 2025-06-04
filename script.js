@@ -165,4 +165,12 @@ document.addEventListener("DOMContentLoaded", () => {
   volumeControl.addEventListener("input", () => {
     player.volume = volumeControl.value;
   });
+
+  player.addEventListener("ended", () => {
+  if (currentTrackIndex !== null) {
+    const nextIndex = (currentTrackIndex + 1) % songs.length;
+    playSong(nextIndex);
+    }
+  });
+
 });
