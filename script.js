@@ -79,94 +79,90 @@ const songs = [
   }
 ];
 
-const songList = document.getElementById("song-list");
-const player = document.getElementById("audio-player");
-const playBtn = document.getElementById("play-pause");
-const playIcon = document.getElementById("play-icon");
-const titleText = document.getElementById("player-title");
-const artistText = document.getElementById("player-artist");
-const coverImg = document.getElementById("player-cover");
-const progressBar = document.getElementById("progress-bar");
-const currentTimeText = document.getElementById("current-time");
-const totalTimeText = document.getElementById("total-time");
-const volumeControl = document.getElementById("volume-control");
+document.addEventListener("DOMContentLoaded", () => {
+  const songList = document.getElementById("song-list");
+  const player = document.getElementById("audio-player");
+  const playBtn = document.getElementById("play-pause");
+  const playIcon = document.getElementById("play-icon");
+  const titleText = document.getElementById("player-title");
+  const artistText = document.getElementById("player-artist");
+  const coverImg = document.getElementById("player-cover");
+  const progressBar = document.getElementById("progress-bar");
+  const currentTimeText = document.getElementById("current-time");
+  const totalTimeText = document.getElementById("total-time");
+  const volumeControl = document.getElementById("volume-control");
 
-let currentTrackIndex = null;
+  let currentTrackIndex = null;
 
-// Render tracklist
-songs.forEach((song, index) => {
-  const row = document.createElement("tr");
-  row.className = "hover:bg-white/10 cursor-pointer transition";
-  row.innerHTML = `
-    <td class="py-2">${index + 1}</td>
-    <td class="py-2">${song.title}</td>
-    <td class="py-2">${song.plays}</td>
-    <td class="py-2 text-right">${song.duration}</td>
-  `;
-  row.addEventListener("click", () => playSong(index));
-  songList.appendChild(row);
-});
+  // Render tracklist
+  songs.forEach((song, index) => {
+    const row = document.createElement("tr");
+    row.className = "hover:bg-white/10 cursor-pointer transition";
+    row.innerHTML = `
+      <td class="py-2">${index + 1}</td>
+      <td class="py-2">${song.title}</td>
+      <td class="py-2">${song.plays}</td>
+      <td class="py-2 text-right">${song.duration}</td>
+    `;
+    row.addEventListener("click", () => playSong(index));
+    songList.appendChild(row);
+  });
 
-// Player
-function playSong(index) {
-  const song = songs[index];
-  player.src = song.file;
-  player.play();
-  currentTrackIndex = index;
-  titleText.textContent = song.title;
-  artistText.textContent = "Derau";
-  coverImg.src = "assets/cover.jpg";
-  updatePlayIcon(true);
-}
-});
-// Back button
-document.getElementById("prev-button").addEventListener("click", () => {
-  if (currentTrackIndex !== null && currentTrackIndex > 0) {
-    playSong(currentTrackIndex - 1);
-  }
-});
-// Next button
-document.getElementById("next-button").addEventListener("click", () => {
-  if (currentTrackIndex !== null && currentTrackIndex < songs.length - 1) {
-    playSong(currentTrackIndex + 1);
-  }
-});
-
-// Toggle 
-playBtn.addEventListener("click", () => {
-  if (!player.src) return;
-  if (player.paused) {
+  function playSong(index) {
+    const song = songs[index];
+    player.src = song.file;
     player.play();
+    currentTrackIndex = index;
+    titleText.textContent = song.title;
+    artistText.textContent = "Derau";
+    coverImg.src = "assets/cover.jpg";
     updatePlayIcon(true);
-  } else {
-    player.pause();
-    updatePlayIcon(false);
   }
+
+  document.getElementById("prev-button").addEventListener("click", () => {
+    if (currentTrackIndex !== null && currentTrackIndex > 0) {
+      playSong(currentTrackIndex - 1);
+    }
+  });
+
+  document.getElementById("next-button").addEventListener("click", () => {
+    if (currentTrackIndex !== null && currentTrackIndex < songs.length - 1) {
+      playSong(currentTrackIndex + 1);
+    }
+  });
+
+  playBtn.addEventListener("click", () => {
+    if (!player.src) return;
+    if (player.paused) {
+      player.play();
+      updatePlayIcon(true);
+    } else {
+      player.pause();
+      updatePlayIcon(false);
+    }
+  });
+
+  function updatePlayIcon(isPlaying) {
+    playIcon.innerHTML = isPlaying
+      ? `<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>`
+      : `<path d="M8 5v14l11-7z"/>`;
+  }
+
+  player.addEventListener("timeupdate", () => {
+    const percent = (player.currentTime / player.duration) * 100;
+    progressBar.style.width = `${percent}%`;
+    currentTimeText.textContent = formatTime(player.currentTime);
+    totalTimeText.textContent = formatTime(player.duration);
+  });
+
+  function formatTime(time) {
+    if (isNaN(time)) return "0:00";
+    const mins = Math.floor(time / 60);
+    const secs = Math.floor(time % 60).toString().padStart(2, "0");
+    return `${mins}:${secs}`;
+  }
+
+  volumeControl.addEventListener("input", () => {
+    player.volume = volumeControl.value;
+  });
 });
-
-function updatePlayIcon(isPlaying) {
-  playIcon.innerHTML = isPlaying
-    ? `<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>` // pause icon
-    : `<path d="M8 5v14l11-7z"/>`; // play icon
-}
-
-// Progress bar
-player.addEventListener("timeupdate", () => {
-  const percent = (player.currentTime / player.duration) * 100;
-  progressBar.style.width = `${percent}%`;
-  currentTimeText.textContent = formatTime(player.currentTime);
-  totalTimeText.textContent = formatTime(player.duration);
-});
-
-function formatTime(time) {
-  if (isNaN(time)) return "0:00";
-  const mins = Math.floor(time / 60);
-  const secs = Math.floor(time % 60).toString().padStart(2, "0");
-  return `${mins}:${secs}`;
-}
-
-// Volume control
-volumeControl.addEventListener("input", () => {
-  player.volume = volumeControl.value;
-});
-
