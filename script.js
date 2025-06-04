@@ -166,11 +166,43 @@ document.addEventListener("DOMContentLoaded", () => {
     player.volume = volumeControl.value;
   });
 
+
+  // Playing next
   player.addEventListener("ended", () => {
   if (currentTrackIndex !== null) {
     const nextIndex = (currentTrackIndex + 1) % songs.length;
     playSong(nextIndex);
     }
+  });
+
+  // Progress bar 
+  const progressContainer = document.getElementById("progress-container");
+  let isDragging = false;
+
+  function updateProgressOnDrag(e) {
+    const rect = progressContainer.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const ratio = Math.min(Math.max(x / rect.width, 0), 1);
+    if (!isNaN(player.duration)) {
+      player.currentTime = ratio * player.duration;
+    }
+  }
+
+  progressContainer.addEventListener("click", updateProgressOnDrag);
+
+  progressContainer.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    updateProgressOnDrag(e);
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      updateProgressOnDrag(e);
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
   });
 
 });
