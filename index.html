@@ -10,45 +10,60 @@
 </head>
 <body class="min-h-screen bg-gradient-to-b from-zinc-300 to-zinc-900 text-white font-sans">
 <!-- Top Navbar -->
-<nav class="fixed top-0 left-0 right-0 z-50 w-full bg-black text-white px-4 py-2 flex items-center justify-between gap-4 flex-wrap shadow-md">
-  <!-- Left Section: Logo + Home -->
-  <div class="flex items-center space-x-4">
-    <img src="assets/logosp0t.png" alt="Sp0tify" class="w-6 h-6">
-    <button class="bg-gray-800 p-2 rounded-full">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V12H9v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-      </svg>
-    </button>
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-black px-4 py-2 text-white flex items-center justify-between sm:justify-between shadow-md">
+
+  <!-- Mobile: Left logo -->
+  <div class="flex items-center space-x-2 sm:hidden">
+    <img src="assets/sp0tlongicon.png" alt="Spotify" class="w-7 h-7">
   </div>
 
-  <!-- Search Bar -->
-  <div class="flex items-center bg-gray-800 rounded-full px-4 py-1 flex-1 max-w-md mx-4 w-full">
-    <svg class="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-      <path d="M21 21l-4.35-4.35M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" />
-    </svg>
-    <input type="text" placeholder="What do you want to play?"
-      class="bg-transparent outline-none w-full text-sm placeholder-gray-400 text-white" />
-    <svg class="w-4 h-4 text-gray-400 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-      <path d="M3 6h18M3 12h18M3 18h18"/>
+  <!-- Mobile: List icon in center -->
+  <div class="sm:hidden">
+    <svg class="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </div>
 
-  <!-- Links -->
-  <div class="flex items-center space-x-4 text-sm whitespace-nowrap">
-    <a href="#" class="hidden sm:inline text-gray-400 hover:text-white">Premium</a>
-    <a href="#" class="hidden sm:inline text-gray-400 hover:text-white">Support</a>
-    <a href="#" class="hidden sm:inline text-gray-400 hover:text-white">Download</a>
-    <div class="hidden sm:inline border-r h-4 border-gray-500 mx-2"></div>
-    <a href="#" class="hidden sm:inline text-gray-400 hover:text-white flex items-center space-x-1">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path d="M12 5v14M5 12h14"/>
-      </svg>
-      <span>Install App</span>
+  <!-- Mobile: "Open App" button -->
+  <div class="sm:hidden">
+    <a href="#" class="text-sm font-semibold bg-white text-black px-4 py-1 rounded-full hover:scale-105 transition">
+      Open App
     </a>
-    <a href="#" class="text-gray-300 hover:text-white font-medium">Sign up</a>
-    <a href="#" class="bg-white text-black font-semibold px-4 py-1 rounded-full hover:scale-105 transition">Log in</a>
+  </div>
+
+  <!-- Desktop: Full nav hidden on mobile -->
+  <div class="hidden sm:flex items-center justify-between w-full">
+    <!-- Left: Logo + Home -->
+    <div class="flex items-center space-x-4">
+      <img src="assets/spoticon.png" alt="Spotify Logo" class="w-6 h-6">
+      <button class="bg-gray-800 p-2 rounded-full">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V12H9v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Center: Search -->
+    <div class="flex items-center bg-gray-800 rounded-full px-4 py-1 max-w-md mx-4 w-full">
+      <svg class="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path d="M21 21l-4.35-4.35M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" />
+      </svg>
+      <input type="text" placeholder="What do you want to play?" class="bg-transparent outline-none w-full text-sm placeholder-gray-400 text-white" />
+    </div>
+
+    <!-- Right: Desktop links -->
+    <div class="flex items-center space-x-4 text-sm">
+      <a href="#" class="text-gray-400 hover:text-white">Premium</a>
+      <a href="#" class="text-gray-400 hover:text-white">Support</a>
+      <a href="#" class="text-gray-400 hover:text-white">Download</a>
+      <div class="border-r h-4 border-gray-600 mx-2"></div>
+      <a href="#" class="text-white font-semibold">Sign up</a>
+      <a href="#" class="bg-white text-black font-semibold px-4 py-1 rounded-full hover:scale-105 transition">Log in</a>
+    </div>
   </div>
 </nav>
+
 
 <div class="pb-40 mt-20"> 
 
@@ -61,7 +76,7 @@
     <p class="text-sm text-gray-300 flex items-center justify-center md:justify-start space-x-2">
       <img src="assets/derau-avatar.jpg" alt="Derau" class="w-6 h-6 rounded-full mr-2">
       <span class="font-semibold text-white">Derau</span>
-      <span class="text-gray-400">· ████ · 13 songs, 54 min</span>
+      <span class="text-gray-400">· 202X · 13 songs, 54 min</span>
     </p>
   </div>
 </div>
