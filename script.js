@@ -1,33 +1,81 @@
 const songs = [
   {
-    title: "Feeling This",
-    plays: "221,371,039",
-    duration: "2:52",
-    file: "assets/feeling-this.mp3"
+    title: "Waiting",
+    plays: "3,999,302",
+    duration: "3:59",
+    file: "assets/Waiting.mp3"
   },
   {
-    title: "Obvious",
-    plays: "33,587,357",
-    duration: "2:43",
-    file: "assets/obvious.mp3"
+    title: "Orang Orang Di Kerumunan",
+    plays: "4,587,357",
+    duration: "3:57",
+    file: "assets/OrangOrangDiKerumunan.mp3"
   },
   {
-    title: "I Miss You",
-    plays: "933,939,353",
+    title: "Sundowner",
+    plays: "7,939,353",
+    duration: "3:25",
+    file: "assets/Sundowner.mp3"
+  },
+  {
+    title: "Nowhere End",
+    plays: "2,781,489",
     duration: "3:47",
-    file: "assets/i-miss-you.mp3"
+    file: "assets/Nowhere_End.mp3"
   },
   {
-    title: "Violence",
-    plays: "33,781,489",
-    duration: "3:39",
-    file: "assets/violence.mp3"
+    title: "Exits",
+    plays: "1,945,200",
+    duration: "3:50",
+    file: "assets/Exits.mp3"
   },
   {
-    title: "Stockholm Syndrome Interlude",
-    plays: "11,075,270",
-    duration: "1:40",
-    file: "assets/stockholm-syndrome-interlude.mp3"
+    title: "Ground",
+    plays: "2,073,170",
+    duration: "3:33",
+    file: "assets/Ground.mp3"
+  },
+  {
+    title: "Hilang",
+    plays: "5,030,210",
+    duration: "4:47",
+    file: "assets/Hilang.mp3"
+  },
+  {
+    title: "Favourite",
+    plays: "11,235,250",
+    duration: "4:27",
+    file: "assets/Favourite.mp3"
+  },
+  {
+    title: "Freakin' Out On The Interstate",
+    plays: "9,201,030",
+    duration: "4:09",
+    file: "assets/Interstate.mp3"
+  },
+  {
+    title: "Take Me First",
+    plays: "20,093,120",
+    duration: "3:19",
+    file: "assets/First.mp3"
+  },
+  {
+    title: "Hancur",
+    plays: "4,000,170",
+    duration: "3:54",
+    file: "assets/Hancur.mp3"
+  },
+  {
+    title: "You're The Only Good Thing in My Life",
+    plays: "25,029,980",
+    duration: "4:35",
+    file: "assets/OnlyGood.mp3"
+  },
+  {
+    title: "Sampai Jumpa",
+    plays: "19,580,170",
+    duration: "4:47",
+    file: "assets/SampaiJumpa.mp3"
   }
 ];
 
