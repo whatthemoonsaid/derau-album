@@ -118,6 +118,19 @@ function playSong(index) {
   coverImg.src = "assets/cover.jpg";
   updatePlayIcon(true);
 }
+});
+// Back button
+document.getElementById("prev-button").addEventListener("click", () => {
+  if (currentTrackIndex !== null && currentTrackIndex > 0) {
+    playSong(currentTrackIndex - 1);
+  }
+});
+// Next button
+document.getElementById("next-button").addEventListener("click", () => {
+  if (currentTrackIndex !== null && currentTrackIndex < songs.length - 1) {
+    playSong(currentTrackIndex + 1);
+  }
+});
 
 // Toggle 
 playBtn.addEventListener("click", () => {
@@ -157,16 +170,3 @@ volumeControl.addEventListener("input", () => {
   player.volume = volumeControl.value;
 });
 
-// Back button
-document.getElementById("prev-button").addEventListener("click", () => {
-  if (currentTrackIndex !== null && currentTrackIndex > 0) {
-    playSong(currentTrackIndex - 1);
-  }
-});
-
-// Next button
-document.getElementById("next-button").addEventListener("click", () => {
-  if (currentTrackIndex !== null && currentTrackIndex < songs.length - 1) {
-    playSong(currentTrackIndex + 1);
-  }
-});
